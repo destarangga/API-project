@@ -17,7 +17,7 @@ class RentalController extends Controller
 
         $limit = $request->limit;
 
-        $students = Student::where('nama', 'LIKE', '%'.$search.'%')->limit($limit)->get();
+        $rentals = Rentals::where('nama', 'LIKE', '%'.$search.'%')->limit($limit)->get();
 
         if ($rentals) {
             return ApiFormatter::createApi(200, 'success', $rentals);
