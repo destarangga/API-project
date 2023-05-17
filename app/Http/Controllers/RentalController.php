@@ -11,7 +11,7 @@ class RentalController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index($id)
     {
         $search = $request->search_nama;
 
