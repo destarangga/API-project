@@ -13,7 +13,11 @@ class RentalController extends Controller
      */
     public function index()
     {
-        $rentals = Rental::all();
+        $search = $request->search_nama;
+
+        $limit = $request->limit;
+
+        $students = Student::where('nama', 'LIKE', '%'.$search.'%')->limit($limit)->get();
 
         if ($rentals) {
             return ApiFormatter::createApi(200, 'success', $rentals);
