@@ -18,12 +18,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', [RentalController::class, 'createToken']);
-Route::get('/rentals', [RentalController::class, 'index']);
-Route::post('/rentals/store', [RentalController::class, 'store']);
-Route::patch('/rentals/{id}/update', [RentalController::class, 'update']);
-Route::get('/rentals/{id}', [RentalController::class, 'show']);
-Route::delete('/rentals/{id}/delete', [RentalController::class, 'destroy']);
-Route::get('/rentals/show/trash', [RentalController::class, 'trash']);
-Route::get('/rentals/show/trash/{id}', [RentalController::class, 'restore']);
-Route::get('/rentals/show/trash/permanent/{id}', [RentalController::class, 'permanentDelete']);
+Route::get('/token', [RentalController::class, 'createToken'])->name('token');
+Route::get('/rentals', [RentalController::class, 'index'])->name('data');
+Route::post('/rentals/store', [RentalController::class, 'store'])->name('tambah-data');
+Route::patch('/rentals/{id}/update', [RentalController::class, 'update'])->name('update');
+Route::get('/rentals/{id}', [RentalController::class, 'show'])->name('show');
+Route::delete('/rentals/{id}/delete', [RentalController::class, 'destroy'])->name('hapus');
+Route::get('/rentals/show/trash', [RentalController::class, 'trash'])->name('sampah');
+Route::get('/rentals/show/trash/{id}', [RentalController::class, 'restore'])->name('restore');
+Route::get('/rentals/show/trash/permanent/{id}', [RentalController::class, 'permanentDelete'])->name('permanentDelete');
